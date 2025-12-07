@@ -34,10 +34,14 @@ function playRound () {
     else if (outcome === "computer") {
         compScore++;
     }
-    console.log(`Player played: ${playerChoice}`);
-    console.log(`Computer played: ${compChoice}`);
-    console.log(`This round's winner: ${outcome}`);
+    console.log(`Player played: ${capitalizeFirstLetter(playerChoice)}`);
+    console.log(`Computer played: ${capitalizeFirstLetter(compChoice)}`);
+    console.log(`This round's winner: ${capitalizeFirstLetter(outcome)}`);
     console.log(`Score: Player ${playerScore}, Computer ${compScore}`);
+}
+
+function capitalizeFirstLetter (str) {
+    return str.replace(str.at(0), str.at(0).toUpperCase())
 }
 
 function findRoundWinner (playerChoice, compChoice) {
@@ -81,3 +85,4 @@ function playGame () {
 }
 
 playGame();
+
