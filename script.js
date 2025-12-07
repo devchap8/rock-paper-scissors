@@ -34,6 +34,10 @@ function playRound () {
     else if (outcome === "computer") {
         compScore++;
     }
+    console.log(`Player played: ${playerChoice}`);
+    console.log(`Computer played: ${compChoice}`);
+    console.log(`This round's winner: ${outcome}`);
+    console.log(`Score: Player ${playerScore}, Computer ${compScore}`);
 }
 
 function findRoundWinner (playerChoice, compChoice) {
@@ -57,4 +61,23 @@ function findRoundWinner (playerChoice, compChoice) {
     }
 }
 
-playRound();
+function playGame () {
+    for (i=0; i<5; i++) {
+        console.log(`Round ${i + 1}`);
+        playRound();
+        if (playerScore === 3 || compScore === 3) {
+            break;
+        }
+    }
+    if (playerScore > compScore) {
+        console.log("Player wins!")
+    }
+    else if (compScore > playerScore) {
+        console.log("Computer wins!")
+    }
+    else {
+        console.log("It's a tie!")
+    }
+}
+
+playGame();
