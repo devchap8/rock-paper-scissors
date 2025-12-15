@@ -94,7 +94,8 @@ const buttons = document.querySelectorAll("button");
 for (const button of buttons) {
     button.addEventListener("click", (event) => {
         if (gameOver === false) {
-            playRound(event.target.innerText.toLowerCase())
+            playRound(event.target.parentElement.classList[0]);
+            console.log(event);
         }
     })
 }
