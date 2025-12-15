@@ -1,5 +1,7 @@
 let playerScore = 0;
 let compScore = 0;
+let round = 0;
+let gameOver = false;
 
 function getComputerChoice () {
     const randNum = Math.floor(Math.random() * 3);
@@ -14,19 +16,8 @@ function getComputerChoice () {
     
 }
 
-function getPlayerChoice () {
-    const playerChoice = prompt("Rock, paper, or scissors?").trim().toLowerCase();
-    if (playerChoice !== "rock" && playerChoice !== "paper" && playerChoice !== "scissors") {
-        return "rock";
-    }
-    else {
-        return playerChoice;
-    }
-}
-
-function playRound () {
+function playRound (playerChoice) {
     const compChoice = getComputerChoice();
-    const playerChoice = getPlayerChoice();
     const outcome = findRoundWinner(playerChoice, compChoice);
     if (outcome === "player") {
         playerScore++;
@@ -34,10 +25,14 @@ function playRound () {
     else if (outcome === "computer") {
         compScore++;
     }
+    console.log(`Round ${round + 1}`);
     console.log(`Player played: ${capitalizeFirstLetter(playerChoice)}`);
     console.log(`Computer played: ${capitalizeFirstLetter(compChoice)}`);
     console.log(`This round's winner: ${capitalizeFirstLetter(outcome)}`);
     console.log(`Score: Player ${playerScore}, Computer ${compScore}`);
+
+    round++;
+    checkWinner();
 }
 
 function capitalizeFirstLetter (str) {
@@ -65,24 +60,35 @@ function findRoundWinner (playerChoice, compChoice) {
     }
 }
 
-function playGame () {
-    for (i=0; i<5; i++) {
-        console.log(`Round ${i + 1}`);
-        playRound();
-        if (playerScore === 3 || compScore === 3) {
-            break;
-        }
+function checkWinner() {
+    if (playerScore === 5) {
+        console.log("Player wins!");
+        gameOver = true;
     }
-    if (playerScore > compScore) {
-        console.log("Player wins!")
-    }
-    else if (compScore > playerScore) {
-        console.log("Computer wins!")
-    }
-    else {
-        console.log("It's a tie!")
+    else if (compScore === 5) {
+        console.log("Computer wins!");
+        gameOver = true;
     }
 }
 
-playGame();
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+
+rock.addEventListener("click", () => {
+    if (gameOver === false) {
+        playRound("rock");
+    }
+})
+paper.addEventListener("click", () => {
+    if (gameOver === false) {
+        playRound("paper");
+    }
+})
+scissors.addEventListener("click", () => {
+    if (gameOver === false) {
+        playRound("scissors");
+    }
+})
+
 
