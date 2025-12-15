@@ -72,13 +72,21 @@ function findRoundWinner (playerChoice, compChoice) {
 
 function checkWinner() {
     if (playerScore === 5) {
-        console.log("Player wins!");
+        displayGameEndInfo("Player");
         gameOver = true;
     }
     else if (compScore === 5) {
-        console.log("Computer wins!");
+        displayGameEndInfo("Computer");
         gameOver = true;
     }
+}
+
+
+function displayGameEndInfo(winner) {
+    const body = document.querySelector("body");
+    const h2 = document.body.appendChild(document.createElement("h2"));
+    h2.textContent = `${winner} wins!!`;
+
 }
 
 const rock = document.querySelector(".rock");
