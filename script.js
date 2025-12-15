@@ -89,9 +89,6 @@ function displayGameEndInfo(winner) {
 
 }
 
-const rock = document.querySelector(".rock");
-const paper = document.querySelector(".paper");
-const scissors = document.querySelector(".scissors");
 
 const buttons = document.querySelectorAll("button");
 for (const button of buttons) {
