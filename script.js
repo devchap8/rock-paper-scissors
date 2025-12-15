@@ -33,11 +33,16 @@ function playRound (playerChoice) {
 }
 
 function updateInfo(playerChoice, compChoice, outcome) {
-    console.log(`Round ${round + 1}`);
-    console.log(`Player played: ${capitalizeFirstLetter(playerChoice)}`);
-    console.log(`Computer played: ${capitalizeFirstLetter(compChoice)}`);
-    console.log(`This round's winner: ${capitalizeFirstLetter(outcome)}`);
-    console.log(`Score: Player ${playerScore}, Computer ${compScore}`);
+    const divs = document.querySelectorAll("div");
+    divs[0].textContent = `Round ${round + 1}`;
+    divs[1].textContent = `Player chose ${playerChoice}. ~~~ Computer chose ${compChoice}.`;
+    if (outcome === "tie") {
+        divs[2].textContent = `It's a tie!`
+    }
+    else {
+        divs[2].textContent = `${capitalizeFirstLetter(outcome)} wins the round!`
+    }
+    divs[3].textContent = `Scores -  Player: ${playerScore} points ~~~ Computer: ${compScore} points`
 }
 
 function capitalizeFirstLetter (str) {
