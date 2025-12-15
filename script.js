@@ -93,21 +93,15 @@ const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 
-rock.addEventListener("click", () => {
-    if (gameOver === false) {
-        playRound("rock");
-    }
-})
-paper.addEventListener("click", () => {
-    if (gameOver === false) {
-        playRound("paper");
-    }
-})
-scissors.addEventListener("click", () => {
-    if (gameOver === false) {
-        playRound("scissors");
-    }
-})
+const buttons = document.querySelectorAll("button");
+for (const button of buttons) {
+    button.addEventListener("click", (event) => {
+        if (gameOver === false) {
+            playRound(event.target.innerText.toLowerCase())
+        }
+    })
+}
+
 
 
 
