@@ -25,14 +25,19 @@ function playRound (playerChoice) {
     else if (outcome === "computer") {
         compScore++;
     }
+
+    updateInfo(playerChoice, compChoice, outcome);
+
+    round++;
+    checkWinner();
+}
+
+function updateInfo(playerChoice, compChoice, outcome) {
     console.log(`Round ${round + 1}`);
     console.log(`Player played: ${capitalizeFirstLetter(playerChoice)}`);
     console.log(`Computer played: ${capitalizeFirstLetter(compChoice)}`);
     console.log(`This round's winner: ${capitalizeFirstLetter(outcome)}`);
     console.log(`Score: Player ${playerScore}, Computer ${compScore}`);
-
-    round++;
-    checkWinner();
 }
 
 function capitalizeFirstLetter (str) {
@@ -90,5 +95,6 @@ scissors.addEventListener("click", () => {
         playRound("scissors");
     }
 })
+
 
 
