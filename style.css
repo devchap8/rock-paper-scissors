@@ -1,5 +1,21 @@
+body {
+    box-sizing: border-box;
+}
+
 img {
     width: 150px;
     height: 150px;
 }
 
+.info,
+h1,
+h2,
+.buttons {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}

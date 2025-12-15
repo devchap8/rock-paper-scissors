@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,15 +11,22 @@
 
     <h1>Rock Paper Scissors!</h1>
 
-    <div class="roundNumber">Round 0</div>
+    <div class="info">
+        <p class="roundNumber">Round 0</p>
+    </div>
 
-    <button class="rock"><img src="images/rock.png" width="150px" height="150px"></button>
-    <button class="paper"><img src="images/paper.png" width="150px" height="150px"></button>
-    <button class="scissors"><img src="images/scissors.png" width="150px" height="150px"></button>
+    <div class="buttons">
+        <button class="rock"><img src="images/rock.png" width="150px" height="150px"></button>
+        <button class="paper"><img src="images/paper.png" width="150px" height="150px"></button>
+        <button class="scissors"><img src="images/scissors.png" width="150px" height="150px"></button>
+    </div>
+    
+    <div class="info">
+        <p class="moves"></p>
+        <p class="roundWinner"></p>
+        <p class="scores"></p>
+    </div>
 
-    <div class="moves"></div>
-    <div class="roundWinner"></div>
-    <div class="scores"></div>
 
 </body>
 </html>

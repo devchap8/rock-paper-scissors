@@ -33,16 +33,16 @@ function playRound (playerChoice) {
 }
 
 function updateInfo(playerChoice, compChoice, outcome) {
-    const divs = document.querySelectorAll("div");
-    divs[0].textContent = `Round ${round + 1}`;
-    divs[1].textContent = `Player chose ${playerChoice}. ~~~ Computer chose ${compChoice}.`;
+    const paras = document.querySelectorAll("p");
+    paras[0].textContent = `Round ${round + 1}`;
+    paras[1].textContent = `Player chose ${playerChoice}. ~~~ Computer chose ${compChoice}.`;
     if (outcome === "tie") {
-        divs[2].textContent = `It's a tie!`
+        paras[2].textContent = `It's a tie!`
     }
     else {
-        divs[2].textContent = `${capitalizeFirstLetter(outcome)} wins the round!`
+        paras[2].textContent = `${capitalizeFirstLetter(outcome)} wins the round!`
     }
-    divs[3].textContent = `Scores -  Player: ${playerScore} points ~~~ Computer: ${compScore} points`
+    paras[3].textContent = `Scores -  Player: ${playerScore} points ~~~ Computer: ${compScore} points`
 }
 
 function capitalizeFirstLetter (str) {
@@ -95,7 +95,6 @@ for (const button of buttons) {
     button.addEventListener("click", (event) => {
         if (gameOver === false) {
             playRound(event.target.parentElement.classList[0]);
-            console.log(event);
         }
     })
 }
